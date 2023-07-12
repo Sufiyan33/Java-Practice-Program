@@ -2,6 +2,8 @@ package string;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class DistinctAndCount {
 
@@ -16,6 +18,12 @@ public class DistinctAndCount {
 				map.put(i, 1);
 			}
 		}
-		System.out.println(map);
+		// System.out.println(map);
+		map.entrySet().forEach(System.out::println);
+
+		System.out.println("---by using java 8 ---");
+		str.chars().boxed().distinct().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.entrySet()
+				.forEach(System.out::println);
 	}
 }

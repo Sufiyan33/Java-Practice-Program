@@ -3,7 +3,6 @@ package string;
 public class FindDuplicateCharacterAndCount {
 
 	public static void main(String[] args) {
-		int count=0;
 		int j = 1;
 		String str = "manojpandey";
 		char[] ch = str.toCharArray();
@@ -11,8 +10,7 @@ public class FindDuplicateCharacterAndCount {
 		for (int i = 0; i < ch.length; i++) {
 			for (j = i + 1; j < ch.length; j++) {
 				if (ch[i] == ch[j]) {
-					count++;
-					System.out.println(ch[j] + count);
+					System.out.println(ch[j]);
 				}
 			}
 		}
