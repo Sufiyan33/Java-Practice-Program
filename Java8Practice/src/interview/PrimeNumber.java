@@ -32,5 +32,6 @@ public class PrimeNumber {
 			System.out.println(" not prime number");
 		}
 
+		input.close();
 	}
 }

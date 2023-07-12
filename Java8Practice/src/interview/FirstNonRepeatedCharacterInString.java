@@ -1,6 +1,7 @@
 package interview;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Function;
@@ -12,7 +13,7 @@ public class FirstNonRepeatedCharacterInString {
 		String input = "Java Hungry Blog Alive is Awesome";
 		Character result = input.chars().mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s)))
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-				.entrySet().stream().filter(entry -> entry.getValue() > 1).map(entry -> entry.getKey()).findFirst()
+				.entrySet().stream().filter(entry -> entry.getValue() == 1).map(entry -> entry.getKey()).findFirst()
 				.get();
 
 		System.out.println(result);
@@ -24,6 +25,9 @@ public class FirstNonRepeatedCharacterInString {
 		System.out.println("-------------------------------");
 		List<String> st = Arrays.asList("apple", "Mango", "Banan", "apricot");
 		st.stream().map(String::toUpperCase).filter(e -> e.startsWith("A")).forEach(System.out::println);
+
+		System.out.println("--- sort in asc order ---");
+		st.stream().map(String::toLowerCase).sorted(Comparator.naturalOrder()).forEach(System.out::println);
 
 	}
 

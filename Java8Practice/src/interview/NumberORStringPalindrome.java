@@ -15,9 +15,9 @@ public class NumberORStringPalindrome {
 		System.out.println("reverse is :: " + reverse);
 
 		if (input.equals(reverse)) {
-			System.out.println("String or number is Palindrom :: " + input + " " + reverse);
+			System.out.println("String or number is Palindrom :: " + input + " , " + reverse);
 		} else {
-			System.out.println("String or number is not Palindrom :: " + input + " " + reverse);
+			System.out.println("String or number is not Palindrom :: " + input + " , " + reverse);
 		}
 	}
 }

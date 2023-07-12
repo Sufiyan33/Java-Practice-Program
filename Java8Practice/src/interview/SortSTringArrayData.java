@@ -23,6 +23,7 @@ public class SortSTringArrayData {
 
 		Arrays.sort(fruits);
 		System.out.println(Arrays.toString(fruits));
+
 		List<Integer> list = Arrays.asList(1, 2, 4, 6);
 		Integer reduce = list.stream().reduce(Integer::sum).get();
 		System.out.println(reduce);
