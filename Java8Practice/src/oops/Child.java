@@ -2,7 +2,8 @@ package oops;
 
 class Child extends Parent {
 
-	int i = 20;
+	int b = 15;
+	int i = 16;
 	public Child() {
 		System.out.println("Child class constructor");
 	}
@@ -48,5 +49,13 @@ class Child extends Parent {
 		child = (Child) parent;
 
 		System.err.println("Example of down casting :: " + child.printString());
+		
+		System.out.println("-----------------------------");
+		Child child1 = new Child();
+		child1.b = 20;
+		child1.i = 20;
+		System.out.println(child1.b + " " + child1.i);
+		
+		
 	}
 }
