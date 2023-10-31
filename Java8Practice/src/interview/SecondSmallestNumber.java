@@ -22,5 +22,13 @@ public class SecondSmallestNumber {
 				.ifPresent(System.out::println);
 		System.out.println("---------------------");
 		list.stream().sorted().skip(1).findFirst().ifPresent(System.out::println);
+
+		System.out.println("<--------3rd smallest number-------->");
+		List<Integer> lis = Arrays.asList(12, 34, 53, 1, 3, 5, 6, 51, 64);
+		lis.stream().sorted(Comparator.naturalOrder()).skip(2).findFirst().ifPresent(System.out::println);
+
+		int[] arr = { 2, 2, 4, 12, 32, 21, 41 };
+		Arrays.stream(arr).boxed().distinct().sorted(Comparator.naturalOrder()).skip(2).findFirst()
+				.ifPresent(System.out::println);
 	}
 }
