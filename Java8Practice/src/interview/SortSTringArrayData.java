@@ -1,7 +1,9 @@
 package interview;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SortSTringArrayData {
 
@@ -19,6 +21,10 @@ public class SortSTringArrayData {
 		}
 		System.out.println(Arrays.toString(fruits));
 
+		System.out.println("--------------------------");
+
+		List<String> collect = Arrays.stream(fruits).sorted(Comparator.naturalOrder()).collect(Collectors.toList());
+		System.out.println("sorted :: " + collect);
 		System.out.println("--------------------------");
 
 		Arrays.sort(fruits);
