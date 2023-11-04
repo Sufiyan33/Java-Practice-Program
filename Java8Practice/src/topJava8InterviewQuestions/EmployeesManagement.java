@@ -1,6 +1,7 @@
 package topJava8InterviewQuestions;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
 import java.util.Iterator;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class EmployeesManagement {
@@ -137,7 +139,7 @@ public class EmployeesManagement {
 		System.out.println("Age :: " + emp.getAge());
 		System.out.println("Departments :: " + emp.getDepartment());
 
-		System.out.println("Question 16 : Find 2nd highest salary? ");
+		System.out.println("Question 17 : Find 2nd highest salary? ");
 		empList.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(1).findFirst()
 				.ifPresent(e -> System.out.println(e.getSalary()));
 		// OR
@@ -145,11 +147,23 @@ public class EmployeesManagement {
 				.sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).limit(2).skip(1).findFirst().get();
 		System.out.println("2nd Highest Salary :: " + secondSalary.getSalary());
 
-		System.out.println("Question 16 : Find 3rd highest salary? ");
+		System.out.println("Question 18 : Find 3rd highest salary? ");
 		empList.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(2).findFirst()
 				.ifPresent(e -> System.out.println(e.getSalary()));
 		// OR
 		empList.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).limit(3).skip(2).findFirst()
 				.ifPresent(e -> System.out.println(e.getSalary()));
+
+		System.out.println("Question 19 : Count pairs of same color using Java 8? ");
+		List<String> list = Arrays.asList("Black", "Green", "Red", "Green", "Yellow");
+		long pairs = 0;
+		Map<String, Long> collect = list.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		for (Map.Entry<String, Long> map : collect.entrySet()) {
+			pairs += map.getValue() / 2;
+		}
+		System.out.println("Pairs of same colors :: " + pairs);
+
+		System.out.println("Question 20 : Count pairs of same color using Java 8? ");
 	}
 }
