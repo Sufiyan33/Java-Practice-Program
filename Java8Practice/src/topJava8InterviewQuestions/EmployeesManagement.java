@@ -1,16 +1,24 @@
 package topJava8InterviewQuestions;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class EmployeesManagement {
 
@@ -143,8 +151,8 @@ public class EmployeesManagement {
 		empList.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(1).findFirst()
 				.ifPresent(e -> System.out.println(e.getSalary()));
 		// OR
-		Employee secondSalary = empList.stream()
-				.sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).limit(2).skip(1).findFirst().get();
+		Employee secondSalary = empList.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+				.limit(2).skip(1).findFirst().get();
 		System.out.println("2nd Highest Salary :: " + secondSalary.getSalary());
 
 		System.out.println("Question 18 : Find 3rd highest salary? ");
@@ -164,6 +172,101 @@ public class EmployeesManagement {
 		}
 		System.out.println("Pairs of same colors :: " + pairs);
 
-		System.out.println("Question 20 : Count pairs of same color using Java 8? ");
+		System.out.println("Question 20 : Check weather a given number Binary is Palindrome or not? ");
+		int number = 1001;
+		boolean isBinary = isBinaryPalindrome(number);
+		System.out.println("Is binaryString Palindrome :: " + isBinary);
+
+		boolean isBinaryPalindrome = isPalindrome(number);
+		System.out.println("Is binaryString Palindrome :: " + isBinaryPalindrome);
+
+		System.out.println("Question 21 : Find factorial of a number using Java8 ");
+		int num = 10;
+		long fact = LongStream.rangeClosed(1, num).reduce(1, (long x, long y) -> x * y);
+		System.out.println("Factorial of a number is :: " + fact);
+
+		System.out.println("Question 22 : Convert empList or List into Map using Java 8 ");
+		empList.stream().collect(Collectors.toMap(Employee::getId, Employee::getName)).entrySet().iterator()
+				.forEachRemaining(System.out::println);
+		// OR, passing whole employee object
+		empList.stream()
+				.collect(Collectors.toMap(e -> e.getId(), e -> e, (oldValues, newValues) -> newValues, HashMap::new))
+				.entrySet().forEach(System.out::println);
+
+		System.out.println("Question 23 : Find Duplicate String And Count using Java 8 ");
+		List<String> lis = Arrays.asList("Suresh", "Sabir", "Suresh");
+		Set<String> set = new HashSet<>();
+		lis.stream().filter(e -> !set.add(e)).forEach(System.out::println);
+		// OR
+		lis.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
+				.forEach(System.out::println);
+		// OR
+		lis.stream().filter(e -> Collections.frequency(lis, e) > 1)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
+				.forEach(System.out::println);
+
+		System.out.println("Question 24 : Find Maximum number in the array using Java 8 ");
+		int[] arr = { 1, 23, 4, 2, 22, 33, 11, 5, 9 };
+		Arrays.stream(arr).boxed().sorted(Comparator.reverseOrder()).findFirst().ifPresent(System.out::println);
+
+		System.out.println("Question 25 : Find Number Starting With one using Java 8 ");
+		List<Integer> list1 = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
+		list1.stream().map(e -> e + "").filter(e -> e.startsWith("1")).forEach(System.out::println);
+
+		System.out.println("Question 26 : Check weather above list contains number starting with 1 using Java 8 ");
+		list1.stream().map(e -> e + "").filter(e -> e.contains("1")).forEach(System.out::println);
+
+		System.out.println("Question 27 : Find Only Duplicate Number And its count using Java 8 ");
+		List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
+		names.stream().filter(e -> Collections.frequency(names, e) > 1)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
+				.forEach(System.out::println);
+		
+		System.out.println("Question 28 : Find first non repeating character in string using Java 8 ");
+		String input = "Java is Awesome";
+		input.chars().mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s)))
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+				.entrySet().stream().filter(entry -> entry.getValue() == 1).map(entry -> entry.getKey()).findFirst()
+				.ifPresent(System.out::println);
+		
+		System.out.println("Question 29 : Join string seprator using Java 8 ");
+		List<String> str = Arrays.asList("Welcome", "to", "Java8");
+		String joinStr = str.stream().map(String::valueOf).collect(Collectors.joining("-"));
+		System.out.println("Joined string using separator :: " + joinStr);
+		
+		System.out.println("Question 30 : Perform Cube And Find Greatest Number using Java 8 ");
+		List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 1, 2, 3);
+		list2.stream().map(e -> e * e * e).filter(e -> e > 50).forEach(System.out::println);
+		// OR
+		list2.stream().map(e -> Math.pow(e, 3)).filter(e -> e > 50).forEach(System.out::println);
+
+		System.out.println("Question 31 : Print date of next Tuesday using Java 8 ");
+		LocalDate today = LocalDate.now();
+		LocalDate date = today.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
+		System.out.println("Next tueday date is :: " + date);
+
+		System.out.println("Question 32 : Print Sum of all elements of array using Java 8 ");
+		List<Integer> numbers = Arrays.asList(5, 4, 10, 12, 87, 33, 75);
+		long totalSum = numbers.stream().mapToInt(e -> e).summaryStatistics().getSum();
+		System.out.println("tatal sum of array number is :: " + totalSum);
+
+		System.out.println("Question 33 : Find sum of two smallest number using Java 8 ");
+		List<Integer> list3 = Arrays.asList(12, 2, 33, 23, 13, 11, 32);
+		Integer twoSum = list3.stream().sorted(Comparator.naturalOrder()).limit(2).reduce(0, Integer::sum);
+		System.out.println("Sum of two samllest number :: " + twoSum);
+
+	}
+
+	public static boolean isBinaryPalindrome(int number) {
+		String binaryString = Integer.toBinaryString(number);
+		System.out.println("Binary representations :: " + binaryString);
+		return new StringBuilder(binaryString).reverse().toString().equals(binaryString);
+	}
+
+	public static boolean isPalindrome(int number) {
+		String binarString = Integer.toBinaryString(number);
+
+		return IntStream.range(0, binarString.length() / 2)
+				.noneMatch(i -> binarString.charAt(i) != binarString.charAt(binarString.length() - i - 1));
 	}
 }
