@@ -255,6 +255,17 @@ public class EmployeesManagement {
 		Integer twoSum = list3.stream().sorted(Comparator.naturalOrder()).limit(2).reduce(0, Integer::sum);
 		System.out.println("Sum of two samllest number :: " + twoSum);
 
+		System.out.println("Question 34 : Find second largest number using Java 8 ");
+		List<Integer> list4 = Arrays.asList(12, 34, 53, 1, 3, 5, 6, 51, 64);
+		list4.stream().sorted(Comparator.reverseOrder()).skip(1).findFirst().ifPresent(System.out::println);
+		// OR
+		list4.stream().sorted(Comparator.reverseOrder()).limit(2).skip(1).findAny().ifPresent(System.out::println);
+
+		System.out.println("Question 35 : Find second largest number if array contain duplicate number using Java 8 ");
+		int[] ar = { 12, 3, 4, 4, 54, 31, 42, 42, 54 };
+		Arrays.stream(ar).boxed().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst()
+				.ifPresent(System.out::println);
+
 	}
 
 	public static boolean isBinaryPalindrome(int number) {
