@@ -1,0 +1,35 @@
+Question 1 : How many male and female employees are there in the organization?
+Question 2 : Print the name of all departments in the organization?
+Question 3 : What is the average age of male and female employees?
+Question 4 : Get the details of highest paid employee in the organization?
+Question 5 : Get the names of all employees who have joined after 2015?
+Question 6 : Get the details of all employees who have joined after 2015?
+Question 7 : Count the number of employees in each department?
+Question 8 : What is the average salary of each department?
+Question 9 : Get the details of youngest male employee in the ME department?
+Question 10 : Who has the most working experience in the organization?
+Question 11 : How many male and female employees are there in the CSE team?
+Question 12 : What is the average salary of male and female employees?
+Question 13 : List down the names of all employees in each department?
+Question 14 : What is the average salary and total salary of the whole organization?
+Question 15 : Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years.
+Question 16 : Who is the oldest employee in the organization? What is his age and which department he belongs to?
+Question 17 : Find 2nd highest salary?
+Question 18 : Find 3rd highest salary?
+Question 19 : Count pairs of same color using Java 8?
+Question 20 : Check weather a given number Binary is Palindrome or not?
+Question 21 : Find factorial of a number using Java8?
+Question 22 : Convert empList or List into Map using Java 8?
+Question 23 : Find Duplicate String And Count using Java 8?
+Question 24 : Find Maximum number in the array using Java 8?
+Question 25 : Find Number Starting With one using Java 8?
+Question 26 : Check weather above list contains number starting with 1 using Java 8?
+Question 27 : Find Only Duplicate Number And its count using Java 8?
+Question 28 : Find first non repeating character in string using Java 8?
+Question 29 : Join string seprator using Java 8?
+Question 30 : Perform Cube And Find Greatest Number using Java 8?
+Question 31 : Print date of next Tuesday using Java 8?
+Question 32 : Print Sum of all elements of array using Java 8?
+Question 33 : Find sum of two smallest number using Java 8?
+Question 34 : Find second largest number using Java 8?
+Question 35 : Find second largest number if array contain duplicate number using Java 8?
