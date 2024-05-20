@@ -13,6 +13,8 @@ public class SortListInBothOrder {
 		Collections.sort(list);
 		System.out.println(list);
 		
+		list.stream().sorted(Comparator.naturalOrder()).forEach(System.out::println);
+
 		System.out.println("---- Descending order ----");
 		list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
 	}
