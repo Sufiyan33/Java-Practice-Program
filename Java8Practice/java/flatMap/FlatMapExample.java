@@ -32,7 +32,16 @@ public class FlatMapExample {
 		 * Print only even number from above 2D array.
 		 */
 
+		System.out.println("--- Find even number ---");
 		list.stream().flatMap(e -> e.stream().filter(s -> s % 2 == 0)).collect(Collectors.toList())
 				.forEach(System.out::println);
+
+		/*
+		 * Find number which are starting from one from above 2D array.
+		 */
+		
+		System.out.println("--- Number starting from one ---");
+		list.stream().flatMap(e -> e.stream().map(s -> s + " ").filter(i -> i.startsWith("1")))
+				.collect(Collectors.toList()).forEach(System.out::println);
 	}
 }
