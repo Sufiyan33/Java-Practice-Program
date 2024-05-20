@@ -43,5 +43,12 @@ public class FlatMapExample {
 		System.out.println("--- Number starting from one ---");
 		list.stream().flatMap(e -> e.stream().map(s -> s + " ").filter(i -> i.startsWith("1")))
 				.collect(Collectors.toList()).forEach(System.out::println);
+
+		/*
+		 * Find sum of all elements.
+		 */
+		System.out.println("--- Find sum of all elements ---");
+		int sum = list.stream().flatMap(e -> e.stream()).mapToInt(Integer::intValue).sum();
+		System.out.println(sum);
 	}
 }
