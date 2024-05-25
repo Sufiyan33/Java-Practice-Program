@@ -11,6 +11,8 @@ public class SearchIn2Darray {
 
 		int[] result = searchTarget(arr, target);
 		System.out.println("Target found at index : " + Arrays.toString(result));
+		
+		System.out.println("Max number in array is : " + findMaxNumber(arr));
 	}
 
 	static int[] searchTarget(int[][] arr, int target) {
@@ -28,20 +30,21 @@ public class SearchIn2Darray {
 		return new int[] { -1, -1 };
 	}
 
-	// Let's iterate array using forEach loop
-	static int[] search(int[][] arr, int target) {
+	// Let's find the max number in 2D array.
+	static int findMaxNumber(int[][] arr) {
+		
+		// int max = arr[0][0];
+		// OR
 
-		if (arr.length == 0)
-			return new int[] { -1, -1 };
-
+		int max = Integer.MIN_VALUE;
 		for (int[] ar : arr) {
-			for (int as : ar) {
-				if (as == target) {
-					return new int[] { as };
+			for (int aa : ar) {
+				if (aa > max) {
+					max = aa;
 				}
 			}
 		}
 
-		return new int[] { -1, -1 };
+		return max;
 	}
 }
