@@ -18,6 +18,11 @@ public class FindNumberWithEvenDigits {
 	public static void main(String[] args) {
 		int[] arr = { 12, 345, 26, 6, 5, 7896, 23, 13, 10 };
 
+		System.out.println("Approach : 1");
+		int even = findDigits(arr);
+		System.out.println("Even digts : " + even);
+
+		System.out.println("Approach : 2");
 		int evenDigits = findEvenDigits(arr);
 		System.out.println("Even digits are :: " + evenDigits);
 	}
@@ -33,6 +38,31 @@ public class FindNumberWithEvenDigits {
 			if (numLength % 2 == 0) {
 				count++;
 			}
+		}
+		return count;
+	}
+
+	// Approach : 1
+	static int findDigits(int arr[]) {
+		int count = 0;
+		for (int aa : arr) {
+			if (even(aa)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	static boolean even(int num) {
+		int digits = checkDigits(num);
+		return (digits % 2 == 0) ? true : false;
+	}
+
+	static int checkDigits(int num) {
+		int count = 0;
+		while (num > 0) {
+			count++;
+			num = num / 10;
 		}
 		return count;
 	}
