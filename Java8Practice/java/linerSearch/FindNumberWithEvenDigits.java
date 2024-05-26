@@ -14,9 +14,16 @@ public class FindNumberWithEvenDigits {
 	 * 
 	 * 2 : Convert number in string and find its length.
 	 */
-	public static void main(String[] args) {
-		int[] arr = { 12, 345, 26, 6, 5, 7896, 23, 13 };
 
+	public static void main(String[] args) {
+		int[] arr = { 12, 345, 26, 6, 5, 7896, 23, 13, 10 };
+
+		int evenDigits = findEvenDigits(arr);
+		System.out.println("Even digits are :: " + evenDigits);
+	}
+
+	// Approach 2 :
+	static int findEvenDigits(int[] arr) {
 		int count = 0;
 
 		for (int i = 0; i < arr.length; i++) {
@@ -27,6 +34,6 @@ public class FindNumberWithEvenDigits {
 				count++;
 			}
 		}
-		System.out.println("Even digits are :: " + count);
+		return count;
 	}
 }
