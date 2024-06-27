@@ -17,5 +17,6 @@ public class ReverseInteger {
 		}
 
 		System.out.println("reverse number is :: " + rev);
+		input.close();
 	}
 }
