@@ -9,6 +9,8 @@ public class PrintSumOfAllElements {
 	public static void main(String[] args) {
 		List<Integer> numbers = Arrays.asList(5, 4, 10, 12, 87, 33, 75);
 		IntSummaryStatistics statics = numbers.stream().mapToInt((e) -> e).summaryStatistics();
+		numbers.stream().reduce(Integer::sum).ifPresent(System.out::println);
+
 		System.out.println("total sum is :: " + statics.getSum());
 	}
 }
