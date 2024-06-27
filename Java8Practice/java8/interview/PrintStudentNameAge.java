@@ -7,12 +7,18 @@ import java.util.stream.Collectors;
 
 public class PrintStudentNameAge {
 
+	/*
+	 * Convert list into map
+	 */
 	public static void main(String[] args) {
 
 		List<Student> studentList = getStudentList();
 		Map<String, Integer> result = studentList.stream()
 				.collect(Collectors.toMap(Student::getName, Student::getAge, (oldValue, newValue) -> oldValue));
 		System.out.println(result);
+		
+		for (Map.Entry<String, Integer> aa : result.entrySet())
+			System.out.println("Key :: " + aa.getKey() + " | " + "value :: " + aa.getValue());
 	}
 
 	public static List<Student> getStudentList() {
