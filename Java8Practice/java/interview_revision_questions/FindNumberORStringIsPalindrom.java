@@ -9,15 +9,20 @@ public class FindNumberORStringIsPalindrom {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("Number is Palindrom :: " + isPalindrom(121));
+		System.out.println("Number is Palindrom :: " + isPalindrom(1212));
 		System.out.println("Number is Palindrom :: " + isPalindrom("banabv"));
 	}
 
 	public static boolean isPalindrom(int n) {
-		String original = Integer.toString(n);
-		String reversed = new StringBuilder(original).reverse().toString();
-
-		return original.equals(reversed);
+		/*
+		 * String original = Integer.toString(n); String reversed = new
+		 * StringBuilder(original).reverse().toString();
+		 * 
+		 * return original.equals(reversed);
+		 */
+		
+		String str = Integer.toString(n);
+		return IntStream.range(0, str.length() / 2).noneMatch(i -> str.charAt(i) != str.charAt(str.length() - i - 1));
 	}
 
 	public static boolean isPalindrom(String n) {
