@@ -14,5 +14,12 @@ public class FindMinAndMaxNumber {
 		int max = Arrays.stream(a).boxed().max(Integer::compareTo).get();
 
 		System.out.println("Max And min is are : " + max + " " + min);
+
+		System.out.println("---------------------------");
+
+		Integer max1 = Arrays.stream(a).boxed().reduce(Integer::max).get();
+		Integer min1 = Arrays.stream(a).boxed().reduce(Integer::min).get();
+
+		System.out.println("Max And min is are : " + max1 + " " + min1);
 	}
 }
